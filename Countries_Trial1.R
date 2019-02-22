@@ -63,6 +63,13 @@ ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, by=country, color = con
 ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, by=country, color = continent)) + geom_point(alpha=0.5) + scale_x_log10() + geom_smooth(method='lm' , size=1.5)
 
 #modify color and size of points on the point layer
-ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, by=country, color = continent)) + geom_point(alpha=1) + scale_x_log10() + geom_smooth(method='lm' , size=1.5)
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, by=country, color = continent)) + geom_point(alpha=1, shape=22) + scale_x_log10() + geom_smooth(method='lm' , size=1.5)
+
+
+
+
+
+
+
 
 
