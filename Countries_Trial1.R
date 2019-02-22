@@ -22,16 +22,14 @@ gapminder[900:905,]
 #call ggplot function to create a new plot, GLOBAL option
 #aes aesthetic properties 
 #geo geometry, visual representation of data
-ggplot(data = gapminder, aes(x = gdpPercap, y = (lifeExp) + geom_point()
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) + geom_point()
 #modify the line below, how life expectancy has changed over time
-ggplot(data = gapminder, aes(x = gdpPercap y = year) + geom_point()
-       ggplot(data = gapminder, aes(x = year, y = (lifeExp) + geom_poin
-ggplot(data = gapminder, aes(x = gdpPercap y = year) + geom_point()
-                                    ggplot(data = gapminder, aes(x = year, y = (lifeExp) + geom_point()
+ggplot(data = gapminder, aes(x = gdpPercap, y = year)) + geom_point()
+ggplot(data = gapminder, aes(x = gdpPercap, y = year)) + geom_point()
 #new trial
-ggplot(data = gapminder, aes(x = year y = (lifeExp)) + geom_point()
-ggplot(data = gapminder, aes(x = gdpPercap, y = (lifeExp) + geom_point()       
-ggplot(data = gapminder, aes(x = year, y = (lifeExp) + geom_point()
+ggplot(data = gapminder, aes(x = year, y = lifeExp)) + geom_point()
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp)) + geom_point()      
+ggplot(data = gapminder, aes(x = year, y = lifeExp)) + geom_point()
 #somehow this works:
 ggplot(data = gapminder, aes(x = year, y = lifeExp)) + geom_point()
 ggplot(data = gapminder, colors(x = year, y = lifeExp)) + geom_point()
@@ -49,15 +47,22 @@ countries_as_characters<-as.character(gapminder$country)
 ggplot(data = gapminder, aes(x = year, y = lifeExp, by=country, color = continent)) + geom_line() + geom_point()
 
 #year as factor
-ggplot(data = gapminder, aes(x = year, y = lifeExp, color = year)) + geom_point()
+ggplot(data = gapminder, aes(x = year, y = lifeExp, (color = year))) + geom_point()
 
 #another version
-ggplot(data = gapminder, aes(x = year, y = lifeExp, by=country, color = coountry) + geom_line()
-ggplot(data = gapminder, aes(x = country, y = lifeExp, by=year, color = continent)) + geom_line()
-ggplot(data = gapminder, aes(x = year, y = lifeExp, by=country, color = continent)) + geom_line() + geom_point()
+ggplot(data = gapminder, aes(x = year, y = lifeExp, by=country, color = continent)) + geom_line()
 
-#change backgroun
-ggplot(data = gapminder, aes(x = year, y = lifeExp, by=country, color = continent)) + geom_line() + geom_point() + theme_minimal()
-git status
-       
-       
+#change backgrou
+ggplot(data = gapminder, aes(x = lifeExp, y = year, by=country, color = continent)) + geom_line() + geom_point() + theme_minimal()       
+
+#cleanup a lot of shit!
+
+#new things
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, by=country, color = continent)) + geom_point() + scale_x_log10()
+
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, by=country, color = continent)) + geom_point(alpha=0.5) + scale_x_log10() + geom_smooth(method='lm' , size=1.5)
+
+#modify color and size of points on the point layer
+ggplot(data = gapminder, aes(x = gdpPercap, y = lifeExp, by=country, color = continent)) + geom_point(alpha=1) + scale_x_log10() + geom_smooth(method='lm' , size=1.5)
+
+
